@@ -1,0 +1,7 @@
+node_modules/
+dist/
+artifacts/
+*.log
+**/bin/
+**/obj/
+.env*

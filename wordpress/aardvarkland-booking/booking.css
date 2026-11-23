@@ -1,0 +1,23 @@
+.ald-booking{color:#202127;font-family:inherit;font-size:16px;line-height:1.5}
+.ald-booking *{box-sizing:border-box}
+.ald-calculator{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-items:start}
+.ald-booking .ald-card{background:#fff;border:1px solid #e1e3e9;border-radius:13px;padding:19px;display:grid;gap:11px;min-width:0;margin:0}
+.ald-booking h2,.ald-booking p,.ald-booking dl{margin:0}
+.ald-booking h2{font-family:inherit;font-weight:680;font-size:1.08rem;letter-spacing:-.022em}
+.ald-booking label{display:grid;gap:6px;color:#353742;font-size:.86rem;font-weight:590}
+.ald-booking select,.ald-booking button{border-radius:8px;min-height:40px;padding:8px 11px;font:inherit}
+.ald-booking select{width:100%;color:#21232b;border:1px solid #d8d9e1;background:#fff}
+.ald-booking button{width:fit-content;color:white;background:#22232b;border:1px solid #22232b;font-size:.88rem;font-weight:650;cursor:pointer}
+.ald-booking button:hover{background:#383a56}
+.ald-booking :focus-visible{outline:2px solid #42449b;outline-offset:3px}
+.ald-booking dl{display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:.9rem}
+.ald-booking dt,.ald-booking .ald-muted{color:#606473}
+.ald-booking dd{margin:0}
+.ald-booking .ald-total{font-size:1.55rem;letter-spacing:-.035em;font-weight:700;font-variant-numeric:tabular-nums}
+.ald-booking .ald-muted,.ald-booking .ald-status{font-size:.88rem}
+.ald-booking .ald-receipt{margin-top:13px}
+.ald-booking .ald-receipt[hidden]{display:none}
+.ald-booking summary{color:#42449b;cursor:pointer;font-size:.88rem}
+.ald-booking code{display:block;overflow-wrap:anywhere;padding:8px 0;font-size:.8rem}
+.ald-booking .ald-status{margin-top:12px}
+@media(max-width:680px){.ald-calculator{grid-template-columns:1fr}.ald-booking .ald-card{padding:14px}}

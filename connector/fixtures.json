@@ -1,0 +1,11 @@
+{
+  "shipments": [
+    { "id": "EXP-DEMO-351", "name": "Mostík · náhradní díly", "status": "Připraveno k expedici", "requiredKind": "packing" },
+    { "id": "EXP-DEMO-352", "name": "Vodor · montážní sada", "status": "Čeká na vychystání", "requiredKind": null }
+  ],
+  "documents": [
+    { "id": "PK-DEMO-611", "shipmentId": "EXP-DEMO-351", "kind": "packing", "title": "Balicí protokol", "note": "Dvě položky jsou zabalené. Obal a štítek prošly kontrolou." },
+    { "id": "PK-DEMO-612", "shipmentId": "EXP-DEMO-352", "kind": "packing", "title": "Starší balicí protokol", "note": "Uzavřený záznam z předchozího pracovního cyklu." },
+    { "id": "ST-DEMO-802", "shipmentId": "EXP-DEMO-351", "kind": "stock", "title": "Pohyb zásob", "note": "Dvě položky byly rezervovány ve skladu." }
+  ]
+}

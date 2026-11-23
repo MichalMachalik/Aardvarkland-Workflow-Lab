@@ -1,0 +1,30 @@
+<section class="ald-booking" data-booking>
+  <div class="ald-calculator">
+    <form class="ald-card" data-booking-form>
+      <h2>Kalkulačka servisu</h2>
+      <label>Počet jednotek
+        <select name="units"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select>
+      </label>
+      <label>Městská část
+        <select name="district"><option value="p6">Praha 6</option><option value="p5">Praha 5</option><option value="p4">Praha 4</option></select>
+      </label>
+      <label>Přednostní čas návštěvy
+        <select name="slot"><option value="am">Dopoledne</option><option value="pm">Odpoledne</option></select>
+      </label>
+      <button type="submit">Vytvořit poptávku</button>
+    </form>
+    <section class="ald-card" aria-label="Kalkulace">
+      <h2>Předběžná cena</h2>
+      <dl><dt>Servis</dt><dd data-work>2 400 Kč</dd><dt>Doprava</dt><dd data-travel>0 Kč</dd></dl>
+      <p class="ald-total" data-total aria-live="polite">2 400 Kč</p>
+      <p class="ald-muted">Cena zahrnuje servis vybraných jednotek při jedné návštěvě a dopravu.</p>
+    </section>
+  </div>
+  <section class="ald-card ald-receipt" data-receipt aria-live="polite" hidden>
+    <h2>Potvrzení poptávky</h2>
+    <p data-receipt-text></p>
+    <details><summary>Záznam konverze</summary><code data-event></code></details>
+    <button type="button" data-booking-reset>Vynulovat záznam</button>
+  </section>
+  <p class="ald-status" data-booking-status role="status"></p>
+</section>
