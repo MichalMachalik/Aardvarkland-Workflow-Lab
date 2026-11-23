@@ -75,9 +75,10 @@ function render(message = '', failed = false, focus = '') {
 }
 
 async function update(action, value) {
+  const request = { role, action, id: active, value };
   const save = () => {
     const result = action === 'reset' ? { state: initialHandover(), active: 'ZAV-DEMO-001' }
-      : transition(load(), { role, action, id: active, value });
+      : transition(load(), request);
     localStorage.setItem(key, JSON.stringify(result.state));
     state = result.state;
     active = result.active;

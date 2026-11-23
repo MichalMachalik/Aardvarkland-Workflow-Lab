@@ -9,6 +9,7 @@
 .ald-booking select{width:100%;color:#21232b;border:1px solid #d8d9e1;background:#fff}
 .ald-booking button{width:fit-content;color:white;background:#22232b;border:1px solid #22232b;font-size:.88rem;font-weight:650;cursor:pointer}
 .ald-booking button:hover{background:#383a56}
+.ald-booking button:disabled{opacity:.6;cursor:wait}
 .ald-booking :focus-visible{outline:2px solid #42449b;outline-offset:3px}
 .ald-booking dl{display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:.9rem}
 .ald-booking dt,.ald-booking .ald-muted{color:#606473}

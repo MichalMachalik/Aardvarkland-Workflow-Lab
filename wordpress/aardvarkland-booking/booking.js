@@ -28,6 +28,8 @@ export function createReceipt(input, previous = []) {
 
 function bind(root) {
   const form = root.querySelector('form');
+  const submit = form.querySelector('button');
+  const reset = root.querySelector('[data-booking-reset]');
   const section = root.querySelector('[data-receipt]');
   const status = root.querySelector('[data-booking-status]');
   const values = () => Object.fromEntries(new FormData(form));
@@ -35,6 +37,7 @@ function bind(root) {
     const data = JSON.parse(localStorage.getItem(key) ?? '[]');
     return Array.isArray(data) ? data : [];
   };
+  const write = change => navigator.locks ? navigator.locks.request(key, change) : change();
 
   function refreshPrice() {
     const estimate = quote(values());
@@ -57,25 +60,39 @@ function bind(root) {
     section.hidden = true;
     refreshPrice();
   });
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
+    const input = values();
+    submit.disabled = true;
+    reset.disabled = true;
     try {
-      const result = createReceipt(values(), load());
-      if (result.added) localStorage.setItem(key, JSON.stringify(result.receipts));
+      const result = await write(() => {
+        const result = createReceipt(input, load());
+        if (result.added) localStorage.setItem(key, JSON.stringify(result.receipts));
+        return result;
+      });
       show(result.receipt);
       status.textContent = result.added ? 'Poptávka je uložená v tomto prohlížeči.' : 'Stejná poptávka už existuje.';
     } catch {
       status.textContent = 'Poptávku se nepodařilo uložit.';
+    } finally {
+      submit.disabled = false;
+      reset.disabled = false;
     }
   });
-  root.querySelector('[data-booking-reset]').addEventListener('click', () => {
+  reset.addEventListener('click', async () => {
+    reset.disabled = true;
+    submit.disabled = true;
     try {
-      localStorage.removeItem(key);
+      await write(() => localStorage.removeItem(key));
       section.hidden = true;
       status.textContent = 'Uložené poptávky byly vymazány.';
-      form.querySelector('button').focus();
     } catch {
       status.textContent = 'Uložené poptávky se nepodařilo vymazat.';
+    } finally {
+      reset.disabled = false;
+      submit.disabled = false;
+      if (section.hidden) submit.focus();
     }
   });
   try {
